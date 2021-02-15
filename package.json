@@ -1,0 +1,27 @@
+{
+  "name": "vyos-client",
+  "version": "0.1.0",
+  "description": "VyOS HTTP API Client",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Foltik/vyos-client-node.git"
+  },
+  "keywords": [
+    "vyos",
+    "api",
+    "client"
+  ],
+  "author": "Jack Foltz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Foltik/vyos-client-node/issues"
+  },
+  "homepage": "https://github.com/Foltik/vyos-client-node#readme",
+  "devDependencies": {
+    "typescript": "^4.1.5"
+  }
+}
