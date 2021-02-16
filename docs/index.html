@@ -1,0 +1,146 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>vyos-client</title>
+	<meta name="description" content="Documentation for vyos-client">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<script async src="assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">vyos-client</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<h1>vyos-client</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#vyos-client" id="vyos-client" style="color: inherit; text-decoration: none;">
+					<h1>vyos-client</h1>
+				</a>
+				<p><a href="https://www.npmjs.com/package/vyos-client"><img src="https://img.shields.io/npm/v/vyos-client" alt="npm"></a>
+					<a href="https://foltik.github.io/vyos-client-js/"><img src="https://img.shields.io/npm/v/vyos-client?label=docs" alt="docs"></a>
+					<a href="https://github.com/Foltik/vyos-client-js/blob/main/LICENSE.md"><img src="https://img.shields.io/github/license/Foltik/vyos-client-js" alt="license"></a>
+				<a href="https://github.com/Foltik/vyos-client-js/actions"><img src="https://img.shields.io/github/workflow/status/Foltik/vyos-client-js/main" alt="build"></a></p>
+				<p>A simple to use client for the VyOS HTTP API.</p>
+				<p>For more information and setup instructions, see
+				<a href="https://docs.vyos.io/en/latest/configuration/service/https.html">docs.vyos.io/HTTP-API</a>.</p>
+				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">Vyos</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;vyos-client&#039;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">client</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Vyos</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;https://my-vyos.local&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;API-KEY&#039;</span><span style="color: #000000">)</span>
+
+<span style="color: #008000">/* Modify configuration */</span>
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #001080">config</span><span style="color: #000000">.</span><span style="color: #795E26">get</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;system host-name&#039;</span><span style="color: #000000">) </span><span style="color: #008000">// &#039;my-vyos&#039;</span>
+<span style="color: #008000">// &#039;my-vyos&#039;</span>
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #001080">config</span><span style="color: #000000">.</span><span style="color: #795E26">set</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;system host-name&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;vyos&#039;</span><span style="color: #000000">)</span>
+
+<span style="color: #008000">/* Update OS images */</span>
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #001080">images</span><span style="color: #000000">.</span><span style="color: #795E26">add</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;https://downloads.vyos.io/rolling/current/amd64/vyos-1.4-rolling-202101301326-amd64.iso&#039;</span><span style="color: #000000">)</span>
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #001080">images</span><span style="color: #000000">.</span><span style="color: #795E26">remove</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;1.4-rolling-202101301326&#039;</span><span style="color: #000000">)</span>
+
+<span style="color: #008000">/* Run operational mode commands */</span>
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #001080">ops</span><span style="color: #000000">.</span><span style="color: #795E26">show</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;date&#039;</span><span style="color: #000000">)</span>
+<span style="color: #008000">// &#039;Mon 15 Feb 2021 10:54:54 PM EST\n&#039;</span>
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #001080">ops</span><span style="color: #000000">.</span><span style="color: #795E26">generate</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;wireguard default-keypair&#039;</span><span style="color: #000000">);</span>
+</code></pre>
+				<p>For local testing, a Node.js repl is included.</p>
+				<p>Set the URL and KEY environment vars when running, or in a <code>.env</code> file.</p>
+				<pre><code class="language-shell"><span style="color: #000000">$ npm install</span>
+<span style="color: #000000">$ npm run build</span>
+<span style="color: #000000">$ URL=https://my-vyos.local KEY=API-KEY npm run repl</span>
+
+<span style="color: #000000">v&gt; await v.config.show(</span><span style="color: #A31515">&#039;system host-name&#039;</span><span style="color: #000000">)</span>
+<span style="color: #A31515">&#039;my-vyos&#039;</span>
+</code></pre>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="modules.html">Exports</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-class">
+						<a href="classes/vyos.html" class="tsd-kind-icon">Vyos</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/vyosconfig.html" class="tsd-kind-icon">Vyos<wbr>Config</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/vyosimages.html" class="tsd-kind-icon">Vyos<wbr>Images</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/vyosops.html" class="tsd-kind-icon">Vyos<wbr>Ops</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
