@@ -1,6 +1,6 @@
 {
   "name": "vyos-client",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "VyOS HTTP API Client",
   "files": [
     "lib/**/*"
@@ -13,16 +13,11 @@
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tsconfig.json",
     "doc": "typedoc --out docs src/index.ts",
-    "repl": "node --experimental-repl-await repl.js",
-    "prepare": "npm run build",
-    "prepublishOnly": "npm test && npm run lint",
-    "preversion": "npm run lint && npm run doc",
-    "version": "npm run format && git add -A src",
-    "postversion": "git push && git push --tags"
+    "repl": "node --experimental-repl-await repl.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Foltik/vyos-client-node.git"
+    "url": "https://github.com/Foltik/vyos-client-js.git"
   },
   "keywords": [
     "vyos",
@@ -31,9 +26,9 @@
   "author": "Jack Foltz",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Foltik/vyos-client-node/issues"
+    "url": "https://github.com/Foltik/vyos-client-js/issues"
   },
-  "homepage": "https://github.com/Foltik/vyos-client-node#readme",
+  "homepage": "https://github.com/Foltik/vyos-client-js#readme",
   "devDependencies": {
     "@types/jest": "^26.0.20",
     "dotenv": "^8.2.0",
